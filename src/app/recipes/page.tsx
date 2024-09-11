@@ -31,7 +31,7 @@ export default function RecipeHome() {
         </div>
       </section>
 
-      <footer className="absolute bottom-0 p-2 bg-blue-950 text-white w-full text-center">
+      <footer className="fixed bottom-0 p-2 bg-blue-950 text-white w-full text-center">
         <p>Todos los derechos reservados 2024</p>
       </footer>
     </main>
