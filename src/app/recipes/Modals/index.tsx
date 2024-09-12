@@ -4,6 +4,7 @@ interface IModalProps {
   onHide?: () => void;
 }
 function ModalAdd({ onHide }: IModalProps) {
+  const isMobile = window.innerWidth <= 768;
   return (
     <div className="h-72 w-80 flex flex-col items-center bg-blue-800 shadow-xl shadow-black m-2 rounded-xl border border-blue-950 ">
       <button
@@ -16,7 +17,7 @@ function ModalAdd({ onHide }: IModalProps) {
         <input
           type="text"
           placeholder="Busca un alimento"
-          autoFocus
+          autoFocus={!isMobile}
           className="outline-none rounded-full p-1 focus:outline text-xs w-52 shadow-md shadow-black"
         />
         <button className="bg-blue-950 text-white rounded-full p-2 text-xs shadow-md shadow-black">
