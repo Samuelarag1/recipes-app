@@ -1,6 +1,11 @@
+"use client";
 import ButtonAdd from "@/components/Buttons/ButtonAdd";
 import Link from "next/link";
+import { useState } from "react";
+import ModalAdd from "./Modals";
 export default function RecipeHome() {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center bg-gradient-to-r from-blue-300  to-blue-800 `}
@@ -34,14 +39,20 @@ export default function RecipeHome() {
 
       <div className="mt-20 flex gap-10 flex-col items-center bg-blue-950 p-4 rounded-lg  shadow-lg shadow-black">
         <p className="text-white">Agregar nuevos ingredientes</p>
-        <ButtonAdd />
+        <ButtonAdd onClick={() => setShowModal(true)} />
       </div>
+      {showModal && (
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-10"></div>
+          <div className="fixed z-10 top-52 m-2">
+            <ModalAdd onHide={() => setShowModal(false)} />
+          </div>
+        </>
+      )}
 
-      <section className="h-60 bg-black bg-opacity-50 mt-20 p-2 rounded-lg shadow-lg shadow-black ">
+      <section className="h-60 w-72 bg-black bg-opacity-50 mt-20 p-2 rounded-lg shadow-lg shadow-black text-center">
         <div className="mt-20">
-          <span className="text-white">
-            Aca podras ver tus ingredientes agregados...
-          </span>
+          <span className="text-white">Aun no tienes ningun ingrediente.</span>
         </div>
       </section>
 
